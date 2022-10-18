@@ -98,8 +98,6 @@ class Manager(object):
         self.soundE_button = pyg.image.load('Buttons/ButtonSoundEffects_off.png')
         self.soundE_button_on = pyg.image.load('Buttons/ButtonSoundEffects_on.png')
         self.soundE_button_off = pyg.image.load('Buttons/ButtonSoundEffects_off.png')
-        self.music = pyg.mixer.music.load('Music/music.wav')
-        self.button_sound = pyg.mixer.Sound('Music/button_sound.wav')
         self.music_playing = False
         self.soundE_playing = False
         self.LEFT_KEY, self.RIGHT_KEY, self.UP_KEY, self.DOWN_KEY, self.FACING_FRONT, self.FACING_LEFT, \
@@ -911,24 +909,14 @@ class Manager(object):
                             self.mainMenu()
                             self.display = "mainMenu"
                         if self.music_button_rect.collidepoint(event.pos) and self.music_playing:
-                            self.sound_effects_player()
-                            self.sound_effects_player()
-                            self.music_button = self.music_button_off
-                            pyg.mixer.music.stop()
                             self.music_playing = False
                         elif self.music_button_rect.collidepoint(event.pos) and not self.music_playing:
-                            self.sound_effects_player()
-                            self.sound_effects_player()
-                            self.music_button = self.music_button_on
-                            pyg.mixer.music.play(-1)
+
                             self.music_playing = True
                         if self.soundE_button_rect.collidepoint(event.pos) and self.soundE_playing:
-                            self.sound_effects_player()
-                            self.soundE_button = self.soundE_button_off
                             self.soundE_playing = False
                         elif self.soundE_button_rect.collidepoint(event.pos) and not self.soundE_playing:
-                            self.sound_effects_player()
-                            self.soundE_button = self.soundE_button_on
+                            
                             self.soundE_playing = True
 
                 elif self.display == "exitScreen":
@@ -1050,14 +1038,10 @@ class Manager(object):
                             self.display = "mainMenu"
                             self.ran = False
                         if self.music_button_rect.collidepoint(event.pos) and self.music_playing:
-                            self.sound_effects_player()
-                            self.music_button = self.music_button_off
-                            pyg.mixer.music.stop()
+
                             self.music_playing = False
                         elif self.music_button_rect.collidepoint(event.pos) and not self.music_playing:
-                            self.sound_effects_player()
-                            self.music_button = self.music_button_on
-                            pyg.mixer.music.play(-1)
+
                             self.music_playing = True
                         if self.soundE_button_rect.collidepoint(event.pos) and self.soundE_playing:
                             self.sound_effects_player()
@@ -1081,26 +1065,13 @@ class Manager(object):
                             self.display = "level"
                             self.ran2 = False
                         if self.music_button_rect.collidepoint(event.pos) and self.music_playing:
-                            self.sound_effects_player()
-                            self.sound_effects_player()
-                            self.music_button = self.music_button_off
-                            pyg.mixer.music.stop()
                             self.music_playing = False
                         elif self.music_button_rect.collidepoint(event.pos) and not self.music_playing:
-                            self.sound_effects_player()
-                            self.sound_effects_player()
-                            self.music_button = self.music_button_on
-                            pyg.mixer.music.play(-1)
+
                             self.music_playing = True
                         if self.soundE_button_rect.collidepoint(event.pos) and self.soundE_playing:
-                            self.sound_effects_player()
-                            self.sound_effects_player()
-                            self.soundE_button = self.soundE_button_off
                             self.soundE_playing = False
                         elif self.soundE_button_rect.collidepoint(event.pos) and not self.soundE_playing:
-                            self.sound_effects_player()
-                            self.sound_effects_player()
-                            self.soundE_button = self.soundE_button_on
                             self.soundE_playing = True
 
                 elif self.display == "level":
